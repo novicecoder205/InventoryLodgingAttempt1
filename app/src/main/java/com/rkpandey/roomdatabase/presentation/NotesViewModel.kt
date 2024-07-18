@@ -1,6 +1,6 @@
 package com.rkpandey.roomdatabase.presentation
 
-import android.util.Log
+
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -51,6 +51,7 @@ class NotesViewModel(
                     description = state.value.description.value,
                     quantity = state.value.quantity.value,
                     location = state.value.location.value,
+                    purpose = state.value.purpose.value,
                     dateAdded = System.currentTimeMillis()
                 )
 
@@ -63,7 +64,8 @@ class NotesViewModel(
                         title = mutableStateOf(""),
                         description = mutableStateOf(""),
                         quantity = mutableStateOf(""),
-                        location = mutableStateOf("")
+                        location = mutableStateOf(""),
+                        purpose = mutableStateOf("")
                     )
                 }
             }

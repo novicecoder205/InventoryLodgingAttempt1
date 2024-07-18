@@ -54,7 +54,7 @@ public final class NoteDao_Impl implements NoteDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT INTO `Note` (`title`,`description`,`quantity`,`location`,`dateAdded`,`id`) VALUES (?,?,?,?,?,nullif(?, 0))";
+        return "INSERT INTO `Note` (`title`,`description`,`quantity`,`location`,`purpose`,`dateAdded`,`id`) VALUES (?,?,?,?,?,?,nullif(?, 0))";
       }
 
       @Override
@@ -80,14 +80,19 @@ public final class NoteDao_Impl implements NoteDao {
         } else {
           statement.bindString(4, entity.getLocation());
         }
-        statement.bindLong(5, entity.getDateAdded());
-        statement.bindLong(6, entity.getId());
+        if (entity.getPurpose() == null) {
+          statement.bindNull(5);
+        } else {
+          statement.bindString(5, entity.getPurpose());
+        }
+        statement.bindLong(6, entity.getDateAdded());
+        statement.bindLong(7, entity.getId());
       }
     }, new EntityDeletionOrUpdateAdapter<Note>(__db) {
       @Override
       @NonNull
       protected String createQuery() {
-        return "UPDATE `Note` SET `title` = ?,`description` = ?,`quantity` = ?,`location` = ?,`dateAdded` = ?,`id` = ? WHERE `id` = ?";
+        return "UPDATE `Note` SET `title` = ?,`description` = ?,`quantity` = ?,`location` = ?,`purpose` = ?,`dateAdded` = ?,`id` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -113,9 +118,14 @@ public final class NoteDao_Impl implements NoteDao {
         } else {
           statement.bindString(4, entity.getLocation());
         }
-        statement.bindLong(5, entity.getDateAdded());
-        statement.bindLong(6, entity.getId());
+        if (entity.getPurpose() == null) {
+          statement.bindNull(5);
+        } else {
+          statement.bindString(5, entity.getPurpose());
+        }
+        statement.bindLong(6, entity.getDateAdded());
         statement.bindLong(7, entity.getId());
+        statement.bindLong(8, entity.getId());
       }
     });
   }
@@ -170,6 +180,7 @@ public final class NoteDao_Impl implements NoteDao {
           final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
           final int _cursorIndexOfQuantity = CursorUtil.getColumnIndexOrThrow(_cursor, "quantity");
           final int _cursorIndexOfLocation = CursorUtil.getColumnIndexOrThrow(_cursor, "location");
+          final int _cursorIndexOfPurpose = CursorUtil.getColumnIndexOrThrow(_cursor, "purpose");
           final int _cursorIndexOfDateAdded = CursorUtil.getColumnIndexOrThrow(_cursor, "dateAdded");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final List<Note> _result = new ArrayList<Note>(_cursor.getCount());
@@ -199,11 +210,17 @@ public final class NoteDao_Impl implements NoteDao {
             } else {
               _tmpLocation = _cursor.getString(_cursorIndexOfLocation);
             }
+            final String _tmpPurpose;
+            if (_cursor.isNull(_cursorIndexOfPurpose)) {
+              _tmpPurpose = null;
+            } else {
+              _tmpPurpose = _cursor.getString(_cursorIndexOfPurpose);
+            }
             final long _tmpDateAdded;
             _tmpDateAdded = _cursor.getLong(_cursorIndexOfDateAdded);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
-            _item = new Note(_tmpTitle,_tmpDescription,_tmpQuantity,_tmpLocation,_tmpDateAdded,_tmpId);
+            _item = new Note(_tmpTitle,_tmpDescription,_tmpQuantity,_tmpLocation,_tmpPurpose,_tmpDateAdded,_tmpId);
             _result.add(_item);
           }
           return _result;
@@ -233,6 +250,7 @@ public final class NoteDao_Impl implements NoteDao {
           final int _cursorIndexOfDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "description");
           final int _cursorIndexOfQuantity = CursorUtil.getColumnIndexOrThrow(_cursor, "quantity");
           final int _cursorIndexOfLocation = CursorUtil.getColumnIndexOrThrow(_cursor, "location");
+          final int _cursorIndexOfPurpose = CursorUtil.getColumnIndexOrThrow(_cursor, "purpose");
           final int _cursorIndexOfDateAdded = CursorUtil.getColumnIndexOrThrow(_cursor, "dateAdded");
           final int _cursorIndexOfId = CursorUtil.getColumnIndexOrThrow(_cursor, "id");
           final List<Note> _result = new ArrayList<Note>(_cursor.getCount());
@@ -262,11 +280,17 @@ public final class NoteDao_Impl implements NoteDao {
             } else {
               _tmpLocation = _cursor.getString(_cursorIndexOfLocation);
             }
+            final String _tmpPurpose;
+            if (_cursor.isNull(_cursorIndexOfPurpose)) {
+              _tmpPurpose = null;
+            } else {
+              _tmpPurpose = _cursor.getString(_cursorIndexOfPurpose);
+            }
             final long _tmpDateAdded;
             _tmpDateAdded = _cursor.getLong(_cursorIndexOfDateAdded);
             final int _tmpId;
             _tmpId = _cursor.getInt(_cursorIndexOfId);
-            _item = new Note(_tmpTitle,_tmpDescription,_tmpQuantity,_tmpLocation,_tmpDateAdded,_tmpId);
+            _item = new Note(_tmpTitle,_tmpDescription,_tmpQuantity,_tmpLocation,_tmpPurpose,_tmpDateAdded,_tmpId);
             _result.add(_item);
           }
           return _result;

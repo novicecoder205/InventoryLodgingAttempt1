@@ -10,6 +10,7 @@ data class NoteState(
     val title: MutableState<String> = mutableStateOf(""),
     val description: MutableState<String> = mutableStateOf(""),
     val quantity: MutableState<String> = mutableStateOf(""),
-    val location: MutableState<String> = mutableStateOf("")
+    val location: MutableState<String> = mutableStateOf(""),
+    val purpose: MutableState<String> = mutableStateOf("")
 
 )

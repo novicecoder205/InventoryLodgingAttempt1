@@ -10,6 +10,7 @@ data class Note(
     val description: String,
     val quantity: String,
     val location: String,
+    val purpose: String,
     val dateAdded: Long,
 
     @PrimaryKey(autoGenerate = true)

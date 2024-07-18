@@ -77,6 +77,7 @@ fun NotesScreen(
                 state.description.value = ""
                 state.quantity.value = ""
                 state.location.value = ""
+                state.purpose.value = ""
                 navController.navigate("AddNoteScreen")
             }) {
                 Icon(imageVector = Icons.Rounded.Add, contentDescription = "Add new note")
@@ -130,10 +131,34 @@ fun NoteItem(
                 color = MaterialTheme.colorScheme.onSecondaryContainer
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(3.dp))
 
             Text(
                 text = state.notes[index].description,
+                fontSize = 16.sp,
+                color = MaterialTheme.colorScheme.onSecondaryContainer
+            )
+            //testing
+            Spacer(modifier = Modifier.height(3.dp))
+
+            Text(
+                text = state.notes[index].quantity,
+                fontSize = 18.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onSecondaryContainer
+            )
+
+            Spacer(modifier = Modifier.height(3.dp))
+
+            Text(
+                text = state.notes[index].location,
+                fontSize = 16.sp,
+                color = MaterialTheme.colorScheme.onSecondaryContainer
+            )
+            Spacer(modifier = Modifier.height(3.dp))
+
+            Text(
+                text = state.notes[index].purpose,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.onSecondaryContainer
             )

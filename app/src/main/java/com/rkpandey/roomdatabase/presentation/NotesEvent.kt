@@ -11,6 +11,7 @@ sealed interface NotesEvent {
         val title: String,
         val description: String,
         val quantity: String,
-        val location: String
+        val location: String,
+        val purpose: String
     ): NotesEvent
 }

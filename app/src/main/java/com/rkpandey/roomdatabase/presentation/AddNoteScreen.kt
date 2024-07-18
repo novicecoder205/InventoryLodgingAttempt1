@@ -1,6 +1,6 @@
 package com.rkpandey.roomdatabase.presentation
 
-import android.util.Log
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,12 +32,12 @@ fun AddNoteScreen(
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = {
-
                 onEvent(NotesEvent.SaveNote(
                     title = state.title.value,
                     description = state.description.value,
                     quantity = state.quantity.value,
-                    location = state.location.value
+                    location = state.location.value,
+                    purpose = state.purpose.value
                 ))
                 navController.popBackStack()
             }) {
@@ -72,7 +72,6 @@ fun AddNoteScreen(
                 placeholder = {
                     Text(text = "Title")
                 }
-
             )
 
             TextField(
@@ -86,7 +85,6 @@ fun AddNoteScreen(
                 placeholder = {
                     Text(text = "Description")
                 }
-
             )
 
             TextField(
@@ -100,7 +98,6 @@ fun AddNoteScreen(
                 placeholder = {
                     Text(text = "Quantity")
                 }
-
             )
 
             TextField(
@@ -114,7 +111,20 @@ fun AddNoteScreen(
                 placeholder = {
                     Text(text = "Location")
                 }
+            )
 
+
+            TextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                value = state.purpose.value,
+                onValueChange = {
+                    state.purpose.value = it
+                },
+                placeholder = {
+                    Text(text = "Purpose")
+                }
             )
 
         }
