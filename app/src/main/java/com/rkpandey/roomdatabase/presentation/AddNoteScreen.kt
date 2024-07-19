@@ -113,7 +113,6 @@ fun AddNoteScreen(
                 }
             )
 
-
             TextField(
                 modifier = Modifier
                     .fillMaxWidth()

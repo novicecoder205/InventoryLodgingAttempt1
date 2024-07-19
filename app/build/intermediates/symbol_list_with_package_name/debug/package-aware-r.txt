@@ -92,6 +92,7 @@ dimen splashscreen_icon_size_with_background
 drawable abc_vector_test
 drawable compat_splash_screen
 drawable compat_splash_screen_no_icon_background
+drawable download
 drawable ic_call_answer
 drawable ic_call_answer_low
 drawable ic_call_answer_video
@@ -101,7 +102,8 @@ drawable ic_call_decline_low
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable icon_background
-drawable inventory
+drawable inventory1
+drawable inventory2
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low

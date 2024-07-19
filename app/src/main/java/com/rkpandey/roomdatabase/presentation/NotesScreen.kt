@@ -33,6 +33,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.rkpandey.roomdatabase.R
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -100,11 +102,8 @@ fun NotesScreen(
                     onEvent = onEvent
                 )
             }
-
         }
-
     }
-
 }
 
 @Composable
@@ -123,6 +122,7 @@ fun NoteItem(
         Column(
             modifier = Modifier.weight(1f)
         ) {
+
 
             Text(
                 text = state.notes[index].title,
@@ -144,7 +144,7 @@ fun NoteItem(
             Text(
                 text = state.notes[index].quantity,
                 fontSize = 18.sp,
-                fontWeight = FontWeight.SemiBold,
+                //fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.onSecondaryContainer
             )
 

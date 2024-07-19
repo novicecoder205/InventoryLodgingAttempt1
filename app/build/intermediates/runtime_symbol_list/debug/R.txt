@@ -91,6 +91,7 @@ int dimen splashscreen_icon_size_with_background 0x7f03001c
 int drawable abc_vector_test 0x7f040001
 int drawable compat_splash_screen 0x7f040002
 int drawable compat_splash_screen_no_icon_background 0x7f040003
+int drawable download 0x7f04001b
 int drawable ic_call_answer 0x7f040004
 int drawable ic_call_answer_low 0x7f040005
 int drawable ic_call_answer_video 0x7f040006
@@ -100,7 +101,8 @@ int drawable ic_call_decline_low 0x7f040009
 int drawable ic_launcher_background 0x7f04000a
 int drawable ic_launcher_foreground 0x7f04000b
 int drawable icon_background 0x7f04000c
-int drawable inventory 0x7f04000d
+int drawable inventory1 0x7f04001c
+int drawable inventory2 0x7f04001a
 int drawable notification_action_background 0x7f04000e
 int drawable notification_bg 0x7f04000f
 int drawable notification_bg_low 0x7f040010

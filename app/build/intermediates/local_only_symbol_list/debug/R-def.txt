@@ -8,9 +8,11 @@ color purple_700
 color teal_200
 color teal_700
 color white
+drawable download
 drawable ic_launcher_background
 drawable ic_launcher_foreground
-drawable inventory
+drawable inventory1
+drawable inventory2
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

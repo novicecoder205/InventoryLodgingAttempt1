@@ -11,7 +11,7 @@
     <string name="app_name">Room Database</string>
     <style name="Theme.MySplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/green</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/inventory</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/inventory1</item>
         <item name="postSplashScreenTheme">@style/Theme.RoomDatabase</item>
 
 
